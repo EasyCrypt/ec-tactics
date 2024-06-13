@@ -1,4 +1,5 @@
  - `proc`
+    - `hoare`: units/proc-hoare.ec
  - `proc <sformula>`
  - `proc <sformula> <sformula> <sformula>`
  - `proc '*'`

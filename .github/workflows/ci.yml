@@ -1,0 +1,27 @@
+name: EasyCrypt Unit Examples Compilation
+
+on: [push,pull_request]
+
+env:
+  HOME: /home/charlie
+  OPAMYES: true
+  OPAMJOBS: 2
+
+jobs:
+  check-unit-examples:
+    name: Check Unit Examples
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/easycrypt/ec-build-box
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install EasyCrypt
+      run: |
+        opam pin add -n easycrypt git+https://github.com/EasyCrypt/easycrypt
+        opam install easycrypt
+    - name: Detect SMT provers
+      run: |
+        opam exec -- easycrypt why3config
+    - name: Check Unit Tests
+      run: |
+        opam exec -- easycrypt runtest config/tests.config units
