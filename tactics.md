@@ -38,7 +38,7 @@ filename: units/proc-hoare.ec
  - `inline [side] [inlineopt] [occurences]`
  - `inline [side] [inlineopt] [occurences] <inlinepat1> [inlinepat...]`
  - `inline [side] [inlineopt] <codepos>`
- - `outline <side> '[' <codepos1> ['-' <codepos1>] ']' <outline_kind>
+ - `outline <side> '[' <codepos1> ['-' <codepos1>] ']' <outline_kind>`
  - `kill [side] <codepos>`
  - `kill [side] <codepos> '!' <uint>`
  - `kill [side] <codepos> '*' <uint>`
@@ -52,11 +52,11 @@ filename: units/proc-hoare.ec
  - `fusion [side] <codepos> '@' <uint> ',' <uint>`
  - `fusion [side] <codepos> '!' <uint> '@' <uint> ',' <uint>`
  - `unroll ['for'] [side] <codepos>`
- - `splitwhile` [side] <codepos> ':' <expression>`
+ - `splitwhile [side] <codepos> ':' <expression>`
  - `byphoare [gpterm(conseq)]`
  - `byehoare [gpterm(conseq)]`
  - `byequiv ['[' byequivopt ']'] [gpterm(conseq)]`
- - `byequiv ['[' byequivopt ']'] [gpterm(conseq)]` ':' <sformula>`
+ - `byequiv ['[' byequivopt ']'] [gpterm(conseq)] ':' <sformula>`
  - `byupto`
  - `conseq '/' <sformula> <gopterm(conseq)>`
  - `conseq [cqoption]`
@@ -69,7 +69,7 @@ filename: units/proc-hoare.ec
  - `conseq <crushmode>`
  - `elim '*'`
  - `exists '*' <sformula ',' ...>`
- - `exlim <sformula ',' ...>``
+ - `exlim <sformula ',' ...>`
  - `ecall [side] '(' <qident> [tvars_app] <sformula...> ')'`
  - `exfalso`
  - `bypr`
