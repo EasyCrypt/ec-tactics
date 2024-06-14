@@ -1,9 +1,16 @@
 # -*- Makefile -*-
 
 # ------------------------------------------------------------------------
-.PHONY: default __force__
+.PHONY: default tactics pages __force__
 
-default: tactics.html
+default: tactics
+
+tactics: tactics.html
+
+pages: tactics __force__
+	rm -rf _pages && mkdir _pages _pages/css
+	cp tactics.html _pages/index.html
+	cp css/styling.css _pages/css
 
 %.html: %.md __force__
 	pandoc \
