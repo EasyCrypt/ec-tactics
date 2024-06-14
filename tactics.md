@@ -10,6 +10,14 @@ title: 'EasyCrypt tactics'
 filename: units/proc-hoare.ec
 ~~~
 
+## `wp`
+
+### Hoare version
+
+~~~ecblock
+filename: units/wp-hoare.ec
+~~~
+
 ## Others
 
  - `proc`
