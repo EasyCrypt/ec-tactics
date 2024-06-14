@@ -15,5 +15,5 @@ module M = {
 
 lemma L : hoare[M.f : 0 < x ==> 0 < res].
 proof.
-by proc.
+proc.
 abort.
