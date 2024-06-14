@@ -25,3 +25,25 @@ jobs:
     - name: Check Unit Tests
       run: |
         opam exec -- easycrypt runtest config/tests.config units
+
+  generate-html:
+    name: Generate HTML
+    runs-on: ubuntu-latest
+    container:
+      image: docker://pandoc/core:2.9
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install build tools
+      run: |
+        apk --no-cache add make python3 py3-pip
+        pip3 install 'panflute==1.12'
+    - name: Run pandoc
+      run: |
+        make tactics.html
+    - name: Archive document
+      uses: actions/upload-artifact@v4
+      with:
+        name: tactics
+        path: |
+          tactics.html
+          css/styling.css
