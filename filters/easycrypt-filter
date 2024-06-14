@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+# ------------------------------------------------------------------------
+import panflute as pf
+
+# ------------------------------------------------------------------------
+def dynamic_easycrypt(options, data, element, doc):
+  if 'filename' not in options:
+    return
+
+  with open(options['filename'], 'r') as stream:
+      contents = stream.read()
+
+  return pf.elements.CodeBlock(
+    text = contents,
+    classes = ['easycrypt'],
+  )
+
+# ------------------------------------------------------------------------
+def main(doc = None):
+    return pf.run_filter(
+      pf.yaml_filter,
+      tag = 'ecblock',
+      strict_yaml = False,
+      function = dynamic_easycrypt,
+      doc = doc
+    )
+
+# ------------------------------------------------------------------------
+if __name__ == "__main__":
+  main()

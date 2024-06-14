@@ -1,5 +1,18 @@
+---
+title: 'EasyCrypt tactics'
+--- 
+
+## `proc`
+
+### Hoare version
+
+~~~ecblock
+filename: units/proc-hoare.ec
+~~~
+
+## Others
+
  - `proc`
-    - `hoare`: units/proc-hoare.ec
  - `proc <sformula>`
  - `proc <sformula> <sformula> <sformula>`
  - `proc '*'`
