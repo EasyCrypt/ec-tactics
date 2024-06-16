@@ -1,1 +1,1 @@
-CSS: see https://benjam.info/panam/
+styling.css: see https://benjam.info/panam/

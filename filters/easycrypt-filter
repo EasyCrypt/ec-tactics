@@ -4,17 +4,33 @@
 import panflute as pf
 
 # ------------------------------------------------------------------------
+TEMPLATE = r'''
+<textarea id="{name}">{contents}</textarea>
+<script>$(function() {{ ecmodule.createECEditor(document.getElementById("{name}")); }})</script>
+'''.lstrip()
+
+# ------------------------------------------------------------------------
+COUNTER = 0
+
+# ------------------------------------------------------------------------
 def dynamic_easycrypt(options, data, element, doc):
-  if 'filename' not in options:
-    return
+  global COUNTER
 
-  with open(options['filename'], 'r') as stream:
-      contents = stream.read()
+  if doc.format not in ['html', 'html5']:
+     return
 
-  return pf.elements.CodeBlock(
-    text = contents,
-    classes = ['easycrypt'],
-  )
+  if isinstance(options, str):
+     contents = options
+  else:
+    with open(options['filename'], 'r') as stream:
+        contents = stream.read()
+
+  contents = contents.rstrip()
+
+  COUNTER += 1
+  data = dict(contents = contents, name = f'ec-{COUNTER}')
+
+  return pf.elements.RawBlock(TEMPLATE.format(**data))
 
 # ------------------------------------------------------------------------
 def main(doc = None):

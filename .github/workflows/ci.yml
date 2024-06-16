@@ -37,8 +37,13 @@ jobs:
       run: |
         sudo apt-get install -y pandoc
         pip3 install --user --break-system-packages panflute
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
     - name: Run pandoc & generate pages
       run: |
+        make -C replay setup-npm
+        make -C replay bundle
         make pages
     - name: Setup Pages
       if: github.ref == 'refs/heads/main'
