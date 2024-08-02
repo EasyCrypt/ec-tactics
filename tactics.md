@@ -23,6 +23,20 @@ filename: units/proc-hoare.ec
 filename: units/wp-hoare.ec
 ~~~
 
+## `while`
+
+### Hoare version
+
+~~~ecblock
+filename: units/while-hoare.ec
+~~~
+
+### PHoare version
+
+~~~ecblock
+filename: units/while-phoare.ec
+~~~
+
 ## Others
 
  - `proc`
