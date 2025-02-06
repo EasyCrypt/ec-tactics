@@ -10,6 +10,6 @@ module type MT(O: OT) = {
 
 lemma L (O1<:OT) (O2<:OT) (M<: MT{-O1}): 
   equiv[M(O1).f ~M(O2).f: 0 < x{1} ==> 0 = res{2}].
-proof.
-proc (false) (3=3). admit. admit.
+proof. 
+proc (glob O1=witness) (={glob O1}).
 abort.
